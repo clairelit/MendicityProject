@@ -9,19 +9,30 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     .contents
-      .col-md-6.quarter(style='background-color:blue;')
-        .center-block
-          h2 What is the Mendicity Institution Trust?
-          i.fa.fa-info.fa-5x
-      .col-md-6.quarter(style='background-color:red;')
-        .center-block
-          h2 What is the Book of Transmission?
-          i.fa.fa-book.fa-5x
-      .col-md-6.quarter(style='background-color:yellow;')
-        .center-block
-          h2 Browse through the people who were granted transmission
-          i.fa.fa-users.fa-5x
-      .col-md-6.quarter(style='background-color:green;')
-        .center-block
-          h2 How to contact The Mendicity Trust Institution
-          i.fa.fa-phone.fa-5x
+      a.linkStyle(href='/whatismendicity')
+        .col-md-6.quarter(style='background-color:blue;')
+          .innerDiv
+            h2 What is the Mendicity Institution Trust?
+          .iconDiv
+            i.fa.fa-info.iconCenter.fa-5x
+
+      a.linkStyle(href='/whatisthebookoftransmission')
+        .col-md-6.quarter(style='background-color:red;')
+          .innerDiv
+            h2 What is the Book of Transmission?
+          .iconDiv
+            i.fa.fa-book.iconCenter.fa-5x
+
+      a.linkStyle(href='/searchpage')
+        .col-md-6.quarter(style='background-color:yellow;')
+          .innerDiv
+            h2 Browse through the people who were granted transmission
+          .iconDiv
+            i.fa.fa-users.iconCenter.fa-5x
+
+      a.linkStyle(href='/contactmendicity')
+        .col-md-6.quarter(style='background-color:green;')
+          .innerDiv
+            h2 How to contact The Mendicity Trust Institution
+          .iconDiv
+            i.fa.fa-phone.iconCenter.fa-5x
