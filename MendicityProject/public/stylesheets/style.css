@@ -19,7 +19,7 @@
   }
 }
 */
-body {
+/*body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -37,4 +37,28 @@ html, body, .container-table {
 
 a {
   color: #00B7FF;
+}
+*/
+
+html,body {
+  padding:0;
+  margin:0;
+  height:100%;
+  min-height:100%;
+ }
+
+.quarter{
+  width:50%;
+  height:100%;
+  float:left;
+}
+.contents{
+  height:50%;
+  width:100%;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
