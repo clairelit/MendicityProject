@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('homePage');
+  res.render('homepage');
 });
 
 router.get('/whatismendicity', function(req, res, next) {

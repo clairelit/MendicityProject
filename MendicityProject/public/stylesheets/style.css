@@ -47,6 +47,10 @@ html,body {
   min-height:100%;
  }
 
+.aboutMendo{
+  margin-left:10px;
+  font-size:16px;
+}
 .quarter{
   width:50%;
   height:100%;
