@@ -22,4 +22,8 @@ router.get('/contactmendicity', function(req, res, next) {
   res.render('contactmendicity');
 });
 
+router.get('/homepage', function(req, res, next) {
+  res.render('homepage');
+});
+
 module.exports = router;
