@@ -98,3 +98,12 @@ html,body {
   margin-left:40%;
   bottom:0;
 }
+
+.headingList{
+  margin-top:10px;
+  border:#cdcdcd solid;
+  padding:10px;
+}
+.namesList{
+  border:#cdcdcd solid;
+}
