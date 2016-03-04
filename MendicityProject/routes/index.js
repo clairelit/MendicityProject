@@ -3,7 +3,8 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 
 var mongoClient = require('mongodb').MongoClient;
-
+var monk = require('monk');
+var db =monk('localhost:27017/mendos');
 
 // If I am running locally then use 'mongodb://localhost:27017/test' otherwise
 // look for the environment variable
@@ -11,17 +12,25 @@ var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://dbuserclaire:litclonme
 
 
 /* GET search page. */
-router.get('/searchpage', function(req, res, next) {
-    //var db = req.db;
-  //  var collection = db.get('mendoPeopleList');
-  //  collection.find({},{},function(e,docs){
-    //    res.render('searchpage', {
-      //      "searchpage" : docs
-      //  });
-  //  });
+/*router.get('/searchpage', function(req, res, next) {
+    var db = req.db;
+    var collection = db.get('mendoPeopleList');
+    collection.find({},function(e,docs){
+      res.render('searchpage', {
+        "searchpage" : docs
+    });
+    });
   res.render('searchpage');
 });
+*/
 
+router.get('/searchpage', function(req, res) {
+    var collection = db.get('mendoPeopleList');
+    collection.find({}, function(err, mendoPeopleList){
+        if (err) throw err;
+      	res.json(mendoPeopleList);
+    });
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

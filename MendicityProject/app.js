@@ -8,12 +8,13 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var people = require('./routes/people');
+
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('mongodb://localhost:27017/mendoPeopleList');
 //var db = monk('mongodb://dbuserclaire:litclonmel@ds064278.mlab.com:64278/MongoLab-f');
 //var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://dbuserclaire:litclonmel@ds064278.mlab.com:64278/MongoLab-f';
-
 
 var session = require('express-session');
 var app = express();
@@ -46,6 +47,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('api/people',people);
 
 
 var expressSessionOptions = {
@@ -59,7 +61,7 @@ app.use(session(expressSessionOptions));
 
 //This makes the database accessible to the router
 app.use(function(req, res, next){
-  req.locals = db;
+  req.db = db;
   next();
 });
 // catch 404 and forward to error handler
