@@ -15,10 +15,8 @@ html
       .col-xs-4
   .row
     .col-xs-3
-      form#custom-search-form.form-search.form-horizontal.pull-right
-          input.search-query.input-large(type='text', placeholder='Town')
-          button.btn(type='submit')
-            i.i.fa.fa-search.fa-1x
+      form(action='/login', method='post')
+      
     .col-xs-3
       form#custom-search-form.form-search.form-horizontal.pull-right
           input.search-query.input-large(type='text', placeholder='Country')
@@ -40,7 +38,7 @@ html
     .col-xs-2.HeadingsList
       h3 First name
     .col-xs-2.HeadingsList
-      h3 Surnname
+      h3 Surname
     .col-xs-2.HeadingsList
       h3 Town
     .col-xs-2.HeadingsList

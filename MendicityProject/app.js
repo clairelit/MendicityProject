@@ -8,7 +8,29 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('mongodb://localhost:27017/mendoPeopleList');
+//var db = monk('mongodb://dbuserclaire:litclonmel@ds064278.mlab.com:64278/MongoLab-f');
+//var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://dbuserclaire:litclonmel@ds064278.mlab.com:64278/MongoLab-f';
+
+
+var session = require('express-session');
 var app = express();
+
+
+/*MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
+  if(err) { return console.dir(err); }
+
+  db.collection('test', function(err, collection) {});
+
+  db.collection('test', {w:1}, function(err, collection) {});
+
+  db.createCollection('test', function(err, collection) {});
+
+  db.createCollection('test', {w:1}, function(err, collection) {});
+
+});*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,6 +47,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
+
+var expressSessionOptions = {
+  secret:'mySecret',
+  resave: true,
+  saveUninitialized: true
+}
+
+
+app.use(session(expressSessionOptions));
+
+//This makes the database accessible to the router
+app.use(function(req, res, next){
+  req.locals = db;
+  next();
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
