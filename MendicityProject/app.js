@@ -5,33 +5,27 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//This is telling the app that routes is = the index.js file, which is in the routes folder
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
-var people = require('./routes/people');
 
+//Tells our app that we want to talk to MongoDB.
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('mongodb://localhost:27017/mendoPeopleList');
-//var db = monk('mongodb://dbuserclaire:litclonmel@ds064278.mlab.com:64278/MongoLab-f');
-//var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://dbuserclaire:litclonmel@ds064278.mlab.com:64278/MongoLab-f';
 
+// If I am running locally then use 'mongodb://localhost:27017/test' otherwise
+// look for the environment variable
+var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://localhost:27017/mendoPeopleList';
+
+/*
+ * Requiring the following package to be able to use sessions.
+ * Need sessions to be able to store user details
+ */
 var session = require('express-session');
+
+//Setting up the express app.  This must be put in before all middleware
 var app = express();
-
-
-/*MongoClient.connect("mongodb://localhost:27017/exampleDb", function(err, db) {
-  if(err) { return console.dir(err); }
-
-  db.collection('test', function(err, collection) {});
-
-  db.collection('test', {w:1}, function(err, collection) {});
-
-  db.createCollection('test', function(err, collection) {});
-
-  db.createCollection('test', {w:1}, function(err, collection) {});
-
-});*/
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -45,25 +39,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
-app.use('api/people',people);
 
-
+//Including this to get sessions to work
 var expressSessionOptions = {
   secret:'mySecret',
   resave: true,
   saveUninitialized: true
 }
 
-
+//session middleware - has to be used
 app.use(session(expressSessionOptions));
 
 //This makes the database accessible to the router
 app.use(function(req, res, next){
-  req.db = db;
+  req.db=db;
   next();
 });
+
+//Anytime i get any kind of a request, use routes, which is the index.js file
+app.use('/', routes);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

@@ -4,33 +4,48 @@ var bodyParser = require('body-parser');
 
 var mongoClient = require('mongodb').MongoClient;
 var monk = require('monk');
-var db =monk('localhost:27017/mendos');
+var db = monk('localhost:27017/mendoPeopleList');
+
 
 // If I am running locally then use 'mongodb://localhost:27017/test' otherwise
 // look for the environment variable
-var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://dbuserclaire:litclonmel@ds064278.mlab.com:64278/MongoLab-f';
+var url = process.env.CUSTOMCONNSTR_MongoDB || 'mongodb://localhost:27017/mendoPeopleList';
 
 
 /* GET search page. */
-/*router.get('/searchpage', function(req, res, next) {
+router.get('/searchpage', function(req, res, next) {
     var db = req.db;
     var collection = db.get('mendoPeopleList');
-    collection.find({},function(e,docs){
+    collection.find({},{},function(e,docs){
       res.render('searchpage', {
-        "searchpage" : docs
+        "resultsFromDB" : docs
     });
     });
-  res.render('searchpage');
+  //res.render('searchpage');
 });
-*/
 
-router.get('/searchpage', function(req, res) {
+/*router.get('/searchpage', function(req, res, next) {
+    var collection = db.get('people');
+    collection.find({}, function(err, mendoPeopleList){
+        if (err) throw err;
+      	res.json(mendoPeopleList);
+    });
+});*/
+
+/*router.get('/searchpage', function(req, res, next){
+  var db =req.db;
+  var collection =db.get('mendoPeopleList');
+  res.render('searchpage', {mendoPeopleList: docs});
+
+});*/
+
+/*router.get('/searchpage', function(req, res, next) {
     var collection = db.get('mendoPeopleList');
     collection.find({}, function(err, mendoPeopleList){
         if (err) throw err;
       	res.json(mendoPeopleList);
     });
-});
+});*/
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

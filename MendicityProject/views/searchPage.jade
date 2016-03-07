@@ -15,8 +15,10 @@ html
       .col-xs-4
   .row
     .col-xs-3
-      form(action='/login', method='post')
-      
+      form#custom-search-form.form-search.form-horizontal.pull-right
+          input.search-query.input-large(type='text', placeholder='Town')
+          button.btn(type='submit')
+            i.i.fa.fa-search.fa-1x
     .col-xs-3
       form#custom-search-form.form-search.form-horizontal.pull-right
           input.search-query.input-large(type='text', placeholder='Country')
@@ -32,89 +34,11 @@ html
           input.search-query.input-large(type='text', placeholder='Surname')
           button.btn(type='submit')
             i.i.fa.fa-search.fa-1x
-
-
-  .row
-    .col-xs-2.HeadingsList
-      h3 First name
-    .col-xs-2.HeadingsList
-      h3 Surname
-    .col-xs-2.HeadingsList
-      h3 Town
-    .col-xs-2.HeadingsList
-      h3 County
-    .col-xs-2.HeadingsList
-      h3 Country
-    .col-xs-2.HeadingsList
-      h3 Year
-
-
-  .row.namesList
-    .col-xs-2
-      p Alexander
-    .col-xs-2
-      p McConnell
-    .col-xs-2
-      p Clonmel
-    .col-xs-2
-      p Tipperary
-    .col-xs-2
-      p Ireland
-    .col-xs-2
-      p 1883
-
-  .row.namesList
-    .col-xs-2
-      p Alexander
-    .col-xs-2
-      p McConnell
-    .col-xs-2
-      p Clonmel
-    .col-xs-2
-      p Tipperary
-    .col-xs-2
-      p Ireland
-    .col-xs-2
-      p 1883
-
-  .row.namesList
-    .col-xs-2
-      p Alexander
-    .col-xs-2
-      p McConnell
-    .col-xs-2
-      p Clonmel
-    .col-xs-2
-      p Tipperary
-    .col-xs-2
-      p Ireland
-    .col-xs-2
-      p 1883
-
-  .row.namesList
-    .col-xs-2
-      p Alexander
-    .col-xs-2
-      p McConnell
-    .col-xs-2
-      p Clonmel
-    .col-xs-2
-      p Tipperary
-    .col-xs-2
-      p Ireland
-    .col-xs-2
-      p 1883
-
-  .row.namesList
-    .col-xs-2
-      p Alexander
-    .col-xs-2
-      p McConnell
-    .col-xs-2
-      p Clonmel
-    .col-xs-2
-      p Tipperary
-    .col-xs-2
-      p Ireland
-    .col-xs-2
-      p 1883
+    .container
+      .row
+        .box
+          .col-lg-12
+            each result, i in resultsFromDB
+              ul
+                li Name: #{result.Surname}
+                li Town: #{result.Town}
