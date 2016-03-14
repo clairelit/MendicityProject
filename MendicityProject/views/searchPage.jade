@@ -35,57 +35,53 @@ html
           button.btn(type='submit')
             i.i.fa.fa-search.fa-1x
 
-    .row
-      .col-xs-12
-        .container
-          .row.headings
-            div
-              .col-xs-2
-                h4 Surname
-              .col-xs-2
-                h4 First Name
-              .col-xs-2
-                h4 Town
-              .col-xs-2
-                h4 County
-              .col-xs-2
-                h4 Country
-              .col-xs-2
-                h4 Year
+  .row
+  .col-xs-12
+    .container
+      .row.headings
+        div
+          .col-xs-2
+            h4 Surname
+          .col-xs-2
+            h4 First Name
+          .col-xs-2
+            h4 Town
+          .col-xs-2
+            h4 County
+          .col-xs-2
+            h4 Country
+          .col-xs-2
+            h4 Year
 
-    .row
-      .col-xs-12
-        .container
-          .row.namesList
-            div
-              .col-xs-2
-                each result, i in resultsFromDB
-                  ul
-                    li #{result.Surname}
 
-            div
-              .col-xs-2
-                each result, i in resultsFromDB
-                  ul
-                    li #{result.FirstName}
-            div
-              .col-xs-2
-                each result, i in resultsFromDB
-                  ul
-                    li #{result.Town}
-            div
-              .col-xs-2
-                each result, i in resultsFromDB
-                  ul
-                    li #{result.County}
-            div
-              .col-xs-2
-                each result, i in resultsFromDB
-                  ul
-                    li #{result.Country}
+  .col-xs-2
+    each result, i in resultsFromDB
+      ul
+        li #{result.Surname}
 
-            div
-              .col-xs-2
-                each result, i in resultsFromDB
-                  ul
-                    li #{result.Year}
+
+  .col-xs-2
+    each result, i in resultsFromDB
+      ul
+        li #{result.FirstName}
+
+  .col-xs-2
+    each result, i in resultsFromDB
+      ul
+        li #{result.Town}
+
+  .col-xs-2
+    each result, i in resultsFromDB
+      ul
+        li #{result.County}
+
+  .col-xs-2
+    each result, i in resultsFromDB
+      ul
+        li #{result.Country}
+
+
+  .col-xs-2
+    each result, i in resultsFromDB
+      ul
+        li #{result.Year}
