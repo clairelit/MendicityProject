@@ -104,6 +104,10 @@ html,body {
   border:#cdcdcd solid;
   padding:10px;
 }
+
+li{
+  list-style: none;
+}
 .namesList{
-  border:#cdcdcd solid;
+//  border:#cdcdcd solid;
 }

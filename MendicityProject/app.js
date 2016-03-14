@@ -5,6 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//'use strict';
+//const electron = require('electron');
+//const app = electron.app;
+//const BrowserWindow = electron.BrowserWindow;
+
+//var mainWindow = null;
 //This is telling the app that routes is = the index.js file, which is in the routes folder
 var routes = require('./routes/index');
 
