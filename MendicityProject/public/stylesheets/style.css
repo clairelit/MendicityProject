@@ -45,6 +45,8 @@ html,body {
   margin:0;
   height:100%;
   min-height:100%;
+  background-image: url(/images/paper.jpg);
+  font-weight: bold;
  }
 
 .aboutMendo{
@@ -70,11 +72,34 @@ html,body {
   float:left;
 }
 
-.quarter{
+.quarterMendicity{
   width:50%;
   height:100%;
   float:left;
+  background-image:  url(/images/paper.jpg);
 }
+
+.quarterTrans{
+  width:50%;
+  height:100%;
+  float:left;
+  background-image: url(/images/paper.jpg);
+}
+
+.quarterSearch{
+  width:50%;
+  height:100%;
+  float:left;
+  background-image: url(/images/paper.jpg);
+}
+
+.quarterContact{
+  width:50%;
+  height:100%;
+  float:left;
+  background-image: url(/images/paper.jpg);
+}
+
 .contents{
   height:50%;
   width:100%;
@@ -90,6 +115,10 @@ html,body {
     width: 60%;
     padding: 10px;
 }
+
+
+
+
 .iconContainer{
   min-height:50%;
 }
@@ -108,6 +137,8 @@ html,body {
 li{
   list-style: none;
 }
+
+
 .namesList{
 //  border:#cdcdcd solid;
 }
