@@ -48,7 +48,26 @@ html,body {
   background-image: url(/images/paper.jpg);
   font-weight: bold;
  }
+ html, body, .container-table {
+     height: 100%;
+ }
+ .container-table {
+     display: table;
+ }
+ .vertical-center-row {
+     display: table-cell;
+     vertical-align: middle;
+ }
 
+.btn {
+  background: #f5f5dc;
+  color: black;
+  padding: 14px 24px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  border-width: thick;
+  border-color: #f4a460;
+}
 .aboutMendo{
   margin-left:10px;
   font-size:16px;

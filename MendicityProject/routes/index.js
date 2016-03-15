@@ -49,7 +49,7 @@ router.get('/searchpage', function(req, res, next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('homepage');
+  res.render('startscreen');
 });
 
 router.get('/whatismendicity', function(req, res, next) {
