@@ -41,6 +41,7 @@ a {
 */
 
 html,body {
+  font-family: "Bookman Old Style";
   padding:0;
   margin:0;
   height:100%;
@@ -59,7 +60,7 @@ html,body {
      vertical-align: middle;
  }
 
-.btn {
+.btnMoreInfo {
   background: #f5f5dc;
   color: black;
   padding: 14px 24px;
